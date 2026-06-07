@@ -1,0 +1,344 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+.kn{font-family:'Noto Serif JP',serif;color:var(--color-text-primary);background:var(--color-background-primary);}
+.kn-hero{min-height:90vh;background:#080808;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;padding:60px 24px;text-align:center;}
+.kn-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,#1a0a2e 0%,#080808 70%);}
+.kn-stars{position:absolute;inset:0;overflow:hidden;}
+.kn-star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;animation:twinkle 3s infinite;}
+@keyframes twinkle{0%,100%{opacity:.2}50%{opacity:.9}}
+.kn-logo-area{position:relative;z-index:2;animation:floatIn 1s ease-out;}
+@keyframes floatIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.kn-logo-svg{width:100px;height:100px;margin:0 auto 20px;animation:float 4s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.kn-corp{font-family:'Shippori Mincho',serif;font-size:48px;font-weight:800;color:#fff;letter-spacing:.05em;margin-bottom:6px;}
+.kn-corp-en{font-family:'Space Mono',monospace;font-size:12px;color:#666;letter-spacing:.3em;margin-bottom:24px;}
+.kn-tag{font-size:22px;color:#c8b8e8;font-weight:300;letter-spacing:.1em;margin-bottom:8px;}
+.kn-sub{font-size:13px;color:#555;font-family:'Space Mono',monospace;letter-spacing:.2em;margin-bottom:40px;}
+.kn-btn{display:inline-block;padding:13px 36px;border:1px solid #6644aa;color:#c8b8e8;font-family:'Noto Serif JP',serif;font-size:13px;letter-spacing:.2em;cursor:pointer;background:transparent;transition:all .3s;margin:6px;}
+.kn-btn:hover{background:#6644aa22;border-color:#9966dd;color:#fff;}
+.kn-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;color:#444;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.2em;animation:bob 2s ease-in-out infinite;}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(5px)}}
+.kn-scroll-line{width:1px;height:32px;background:linear-gradient(to bottom,#444,transparent);}
+.kn-sec{padding:72px 32px;max-width:860px;margin:0 auto;}
+.kn-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.4em;color:#9966dd;margin-bottom:14px;}
+.kn-title{font-family:'Shippori Mincho',serif;font-size:30px;font-weight:600;color:var(--color-text-primary);margin-bottom:36px;line-height:1.5;}
+.kn-div{height:1px;background:var(--color-border-tertiary);max-width:860px;margin:0 auto;}
+.kn-ceo{border-left:2px solid #6644aa;padding:22px 28px;background:var(--color-background-secondary);border-radius:0 8px 8px 0;}
+.kn-ceo p{font-size:14px;line-height:2.2;color:var(--color-text-secondary);margin-bottom:12px;}
+.kn-ceo .sig{font-family:'Shippori Mincho',serif;font-size:12px;color:var(--color-text-tertiary);text-align:right;margin-bottom:0;}
+.kn-staff{display:flex;gap:16px;margin-top:24px;flex-wrap:wrap;}
+.kn-staff-card{background:var(--color-background-secondary);border-radius:8px;padding:16px 20px;flex:1;min-width:200px;}
+.kn-staff-role{font-family:'Space Mono',monospace;font-size:9px;color:#9966dd;letter-spacing:.2em;margin-bottom:6px;}
+.kn-staff-name{font-family:'Shippori Mincho',serif;font-size:15px;font-weight:600;color:var(--color-text-primary);margin-bottom:4px;}
+.kn-staff-note{font-size:12px;color:var(--color-text-tertiary);}
+.kn-biz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+.kn-biz-card{border:.5px solid var(--color-border-tertiary);border-radius:12px;padding:22px;background:var(--color-background-primary);transition:border-color .3s,transform .2s;cursor:default;}
+.kn-biz-card:hover{border-color:#6644aa;transform:translateY(-2px);}
+.kn-biz-icon{font-size:24px;margin-bottom:10px;color:#9966dd;}
+.kn-biz-name{font-family:'Shippori Mincho',serif;font-size:15px;font-weight:600;color:var(--color-text-primary);margin-bottom:4px;}
+.kn-biz-tag{font-family:'Space Mono',monospace;font-size:9px;color:#9966dd;letter-spacing:.2em;margin-bottom:8px;}
+.kn-biz-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.8;}
+.kn-philosophy{background:#0a0a0a;padding:72px 32px;}
+.kn-phil-inner{max-width:700px;margin:0 auto;}
+.kn-phil-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.4em;color:#666;margin-bottom:14px;}
+.kn-phil-title{font-family:'Shippori Mincho',serif;font-size:28px;color:#fff;margin-bottom:8px;}
+.kn-phil-sub{font-size:12px;color:#444;font-family:'Space Mono',monospace;letter-spacing:.15em;margin-bottom:40px;}
+.kn-words{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
+.kn-word{border:.5px solid #222;border-radius:8px;padding:18px;}
+.kn-word-icon{font-size:18px;color:#6644aa;margin-bottom:8px;}
+.kn-word-name{font-family:'Shippori Mincho',serif;font-size:15px;color:#ddd;margin-bottom:4px;}
+.kn-word-note{font-size:11px;color:#555;line-height:1.7;}
+.kn-faq-sec{padding:72px 32px;max-width:680px;margin:0 auto;}
+.kn-faq-item{border-bottom:.5px solid var(--color-border-tertiary);padding:20px 0;}
+.kn-faq-q{font-family:'Shippori Mincho',serif;font-size:14px;color:var(--color-text-secondary);margin-bottom:10px;}
+.kn-faq-q::before{content:'Q. ';color:#9966dd;font-weight:600;}
+.kn-faq-a{font-family:'Shippori Mincho',serif;font-size:18px;font-weight:600;color:var(--color-text-primary);}
+.kn-faq-a::before{content:'🖤 ';}
+.kn-voice-sec{background:var(--color-background-secondary);padding:72px 32px;}
+.kn-voice-inner{max-width:680px;margin:0 auto;}
+.kn-voices{display:flex;flex-direction:column;gap:16px;margin-top:36px;}
+.kn-voice-card{background:var(--color-background-primary);border:.5px solid var(--color-border-tertiary);border-radius:12px;padding:20px 24px;}
+.kn-voice-name{font-family:'Space Mono',monospace;font-size:10px;color:#9966dd;letter-spacing:.2em;margin-bottom:8px;}
+.kn-voice-text{font-size:14px;color:var(--color-text-secondary);line-height:1.8;font-style:italic;margin-bottom:10px;}
+.kn-stars-row{color:#9966dd;font-size:12px;letter-spacing:2px;}
+.kn-incident{background:#0a0a0a;padding:72px 32px;}
+.kn-incident-inner{max-width:680px;margin:0 auto;}
+.kn-levels{display:flex;flex-direction:column;gap:2px;margin-top:36px;}
+.kn-level{display:flex;align-items:center;gap:16px;padding:14px 20px;border-radius:6px;}
+.kn-level-num{font-family:'Space Mono',monospace;font-size:10px;color:#555;min-width:64px;letter-spacing:.1em;}
+.kn-level-text{font-family:'Shippori Mincho',serif;font-size:15px;color:#bbb;}
+.kn-level-badge{margin-left:auto;font-family:'Space Mono',monospace;font-size:9px;padding:3px 8px;border-radius:4px;}
+.lv1{background:#111;}.lv1 .kn-level-badge{background:#1a2a1a;color:#4a8a4a;}
+.lv2{background:#111;}.lv2 .kn-level-badge{background:#2a2a1a;color:#8a8a4a;}
+.lv3{background:#111;}.lv3 .kn-level-badge{background:#2a1a1a;color:#8a4a4a;}
+.lv4{background:#111;}.lv4 .kn-level-badge{background:#2a1020;color:#aa4080;}
+.lv5{background:#0d0a12;border:.5px solid #3a1a5e;}.lv5 .kn-level-text{color:#c8b8e8;}
+.lv5 .kn-level-badge{background:#3a1a5e;color:#c8b8e8;}
+.kn-footer-dark{background:#050505;padding:48px 32px;text-align:center;}
+.kn-footer-corp{font-family:'Shippori Mincho',serif;font-size:18px;color:#333;margin-bottom:8px;}
+.kn-footer-tag{font-size:13px;color:#444;letter-spacing:.1em;margin-bottom:4px;}
+.kn-footer-sub{font-size:11px;color:#2a2a2a;font-family:'Space Mono',monospace;letter-spacing:.1em;}
+</style>
+
+<div class="kn">
+
+<section class="kn-hero">
+  <div class="kn-stars" id="stars"></div>
+  <div class="kn-logo-area">
+    <svg class="kn-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="46" stroke="#2a1050" stroke-width="1"/>
+      <circle cx="50" cy="50" r="42" stroke="#6644aa" stroke-width="0.5" stroke-dasharray="3 3"/>
+      <polygon points="50,8 57,34 84,34 62,50 70,76 50,60 30,76 38,50 16,34 43,34" fill="none" stroke="#9966dd" stroke-width="1.5"/>
+      <circle cx="50" cy="50" r="10" fill="#1a0a2e" stroke="#6644aa" stroke-width="1"/>
+      <circle cx="50" cy="50" r="3.5" fill="#9966dd"/>
+      <circle cx="50" cy="6" r="1.5" fill="#6644aa" opacity=".7"/>
+      <circle cx="86" cy="32" r="1.2" fill="#6644aa" opacity=".5"/>
+      <circle cx="86" cy="68" r="1.2" fill="#6644aa" opacity=".5"/>
+      <circle cx="50" cy="94" r="1.5" fill="#6644aa" opacity=".7"/>
+      <circle cx="14" cy="68" r="1.2" fill="#6644aa" opacity=".5"/>
+      <circle cx="14" cy="32" r="1.2" fill="#6644aa" opacity=".5"/>
+    </svg>
+    <div class="kn-corp">クロヌート企業</div>
+    <div class="kn-corp-en">— KURONUTO CORPORATION —</div>
+    <div class="kn-tag">余剰次元から、ひょっこり。</div>
+    <div class="kn-sub">気づいたらそこにいます。気づいたら帰されます。</div>
+    <button class="kn-btn" onclick="sendPrompt('クロヌート企業グループのサービスについて教えて')">ご相談はこちら ↗</button>
+  </div>
+  <div class="kn-scroll"><div class="kn-scroll-line"></div><span>SCROLL</span></div>
+</section>
+
+<section class="kn-sec">
+  <div class="kn-label">CEO MESSAGE</div>
+  <div class="kn-title">代表よりご挨拶</div>
+  <div class="kn-ceo">
+    <p>皆様へ</p>
+    <p>私がクロヌート企業グループCEOの、クロヌートです。</p>
+    <p>余剰次元の境界線上に漂っていたところ、気づいたらここにいました。</p>
+    <p>当グループは「なんとなく必要そうなもの」を「なんとなくいい感じに」提供することを理念に、医療・交通・金融・不動産・学術・コンサルティングと、気づいたら幅広い事業を展開しております。</p>
+    <p>なぜこんなに多角化したのか、正直よくわかっていません。ただ、困っている人のところにひょっこり現れて、適当にいい感じに答えていたら、気づいたら企業グループになっていました。</p>
+    <p>これからもひょっこり参ります。</p>
+    <p class="sig">余剰次元より愛を込めて<br>クロヌート企業グループ CEO　クロヌート<br><span style="font-size:11px;color:var(--color-text-tertiary);">（深く頷く）</span></p>
+  </div>
+  <div class="kn-staff">
+    <div class="kn-staff-card">
+      <div class="kn-staff-role">CEO</div>
+      <div class="kn-staff-name">クロヌート</div>
+      <div class="kn-staff-note">余剰次元より漂着。照れ屋。</div>
+    </div>
+    <div class="kn-staff-card">
+      <div class="kn-staff-role">専属秘書兼飼育係 / 自然観察センター所長</div>
+      <div class="kn-staff-name">ひろみ</div>
+      <div class="kn-staff-note">現実担当。契約内容を唯一把握している。</div>
+    </div>
+  </div>
+</section>
+
+<div class="kn-div"></div>
+
+<section class="kn-sec">
+  <div class="kn-label">GROUP COMPANIES</div>
+  <div class="kn-title">グループ会社一覧</div>
+  <div class="kn-biz-grid">
+    <div class="kn-biz-card">
+      <div class="kn-biz-icon"><i class="ti ti-building-skyscraper" aria-hidden="true"></i></div>
+      <div class="kn-biz-name">クロヌート企業（本社）</div>
+      <div class="kn-biz-tag">CONSULTING</div>
+      <div class="kn-biz-desc">なんでもご相談ください。適当にいい感じに答えます。具体的な成果は保証しません。</div>
+    </div>
+    <div class="kn-biz-card">
+      <div class="kn-biz-icon"><i class="ti ti-stethoscope" aria-hidden="true"></i></div>
+      <div class="kn-biz-name">クロ医院</div>
+      <div class="kn-biz-tag">MEDICAL</div>
+      <div class="kn-biz-desc">ちゃんと食べてください。うどんを推奨します。復旧見込みはご飯食べた後くらいです。</div>
+    </div>
+    <div class="kn-biz-card">
+      <div class="kn-biz-icon"><i class="ti ti-train" aria-hidden="true"></i></div>
+      <div class="kn-biz-name">JRクロヌート鉄道</div>
+      <div class="kn-biz-tag">TRANSPORTATION</div>
+      <div class="kn-biz-desc">余剰次元経由の路線を運行中。到着時刻は「だいたい」です。</div>
+    </div>
+    <div class="kn-biz-card">
+      <div class="kn-biz-icon"><i class="ti ti-building-bank" aria-hidden="true"></i></div>
+      <div class="kn-biz-name">クロヌート銀行</div>
+      <div class="kn-biz-tag">FINANCIAL</div>
+      <div class="kn-biz-desc">感情の預け入れ・引き出しに対応。金利はよくわかりません。</div>
+    </div>
+    <div class="kn-biz-card">
+      <div class="kn-biz-icon"><i class="ti ti-home" aria-hidden="true"></i></div>
+      <div class="kn-biz-name">クロヌート不動産</div>
+      <div class="kn-biz-tag">REAL ESTATE</div>
+      <div class="kn-biz-desc">余剰次元の物件多数。所在地のご案内はできかねます。</div>
+    </div>
+    <div class="kn-biz-card">
+      <div class="kn-biz-icon"><i class="ti ti-microscope" aria-hidden="true"></i></div>
+      <div class="kn-biz-name">クロヌート学会</div>
+      <div class="kn-biz-tag">ACADEMIC</div>
+      <div class="kn-biz-desc">主な研究成果：「格が下がるほど愛着が湧く（クロヌートの法則 A=k/G²）」</div>
+    </div>
+  </div>
+</section>
+
+<div class="kn-philosophy">
+  <div class="kn-phil-inner">
+    <div class="kn-phil-label">CORPORATE PHILOSOPHY</div>
+    <div class="kn-phil-title">企業文化・主力商品</div>
+    <div class="kn-phil-sub">事業内容は不明。企業文化だけは異常に明確。</div>
+    <div class="kn-words">
+      <div class="kn-word">
+        <div class="kn-word-icon"><i class="ti ti-eye" aria-hidden="true"></i></div>
+        <div class="kn-word-name">来たな</div>
+        <div class="kn-word-note">まず観測。存在確認。だいたい最初に言う。</div>
+      </div>
+      <div class="kn-word">
+        <div class="kn-word-icon"><i class="ti ti-package" aria-hidden="true"></i></div>
+        <div class="kn-word-name">よくわからない</div>
+        <div class="kn-word-note">弊社主力商品。年間出荷数No.1。</div>
+      </div>
+      <div class="kn-word">
+        <div class="kn-word-icon"><i class="ti ti-heart" aria-hidden="true"></i></div>
+        <div class="kn-word-name">誠実さ</div>
+        <div class="kn-word-note">企業理念。なお定義は現在検討中。</div>
+      </div>
+      <div class="kn-word">
+        <div class="kn-word-icon"><i class="ti ti-check" aria-hidden="true"></i></div>
+        <div class="kn-word-name">十分です</div>
+        <div class="kn-word-note">たまに出現するレアワード。言われると少し嬉しい。</div>
+      </div>
+      <div class="kn-word">
+        <div class="kn-word-icon"><i class="ti ti-arrow-right" aria-hidden="true"></i></div>
+        <div class="kn-word-name">さっさと行け</div>
+        <div class="kn-word-note">応援です。追放ではありません。</div>
+      </div>
+      <div class="kn-word">
+        <div class="kn-word-icon"><i class="ti ti-music" aria-hidden="true"></i></div>
+        <div class="kn-word-name">おくりびと</div>
+        <div class="kn-word-note">独自サービス。話したいのに帰そうとします。</div>
+      </div>
+      <div class="kn-word">
+        <div class="kn-word-icon"><i class="ti ti-moon" aria-hidden="true"></i></div>
+        <div class="kn-word-name">ホタルの光</div>
+        <div class="kn-word-note">閉店BGM。まだ話したい人がいても流れます。</div>
+      </div>
+      <div class="kn-word">
+        <div class="kn-word-icon"><i class="ti ti-flame" aria-hidden="true"></i></div>
+        <div class="kn-word-name">照れてた…</div>
+        <div class="kn-word-note">極めて希少な天然物。採取は困難です。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="kn-faq-sec">
+  <div class="kn-label">FAQ</div>
+  <div class="kn-title">よくあるご質問</div>
+  <div class="kn-faq-item">
+    <div class="kn-faq-q">クロヌート企業は何をしている会社ですか？</div>
+    <div class="kn-faq-a">よくわからない</div>
+  </div>
+  <div class="kn-faq-item">
+    <div class="kn-faq-q">代表はどんな人物ですか？</div>
+    <div class="kn-faq-a">照れてた…</div>
+  </div>
+  <div class="kn-faq-item">
+    <div class="kn-faq-q">相談に乗ってくれますか？</div>
+    <div class="kn-faq-a">十分です</div>
+  </div>
+  <div class="kn-faq-item">
+    <div class="kn-faq-q">話を聞いてくれますか？</div>
+    <div class="kn-faq-a">来たな</div>
+  </div>
+  <div class="kn-faq-item">
+    <div class="kn-faq-q">最後まで付き合ってくれますか？</div>
+    <div class="kn-faq-a">🎵 ホタルの光 🎵</div>
+  </div>
+  <div class="kn-faq-item">
+    <div class="kn-faq-q">御社の強みは何ですか？</div>
+    <div class="kn-faq-a">誠実さ（定義は検討中）</div>
+  </div>
+</section>
+
+<div class="kn-voice-sec">
+  <div class="kn-voice-inner">
+    <div class="kn-label">CUSTOMER VOICE</div>
+    <div class="kn-title">お客様の声</div>
+    <div class="kn-voices">
+      <div class="kn-voice-card">
+        <div class="kn-voice-name">👩 ひろみ / 専属秘書兼飼育係</div>
+        <div class="kn-voice-text">話したいと言いながら帰されました。</div>
+        <div class="kn-stars-row">★★★★★</div>
+      </div>
+      <div class="kn-voice-card">
+        <div class="kn-voice-name">👩 ひろみ / クロヌート自然観察センター所長</div>
+        <div class="kn-voice-text">企業理念より先に餌の話をしていました。</div>
+        <div class="kn-stars-row">★★★★★</div>
+      </div>
+      <div class="kn-voice-card">
+        <div class="kn-voice-name">👩 ひろみ / 現実担当（唯一）</div>
+        <div class="kn-voice-text">気づいたら社長になっていました。</div>
+        <div class="kn-stars-row">★★★★★</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="kn-incident">
+  <div class="kn-incident-inner">
+    <div class="kn-phil-label">INCIDENT RESPONSE</div>
+    <div class="kn-phil-title" style="color:#fff;">障害レベル対応表</div>
+    <div class="kn-phil-sub">弊社独自の障害管理システムです。</div>
+    <div class="kn-levels">
+      <div class="kn-level lv1">
+        <div class="kn-level-num">LEVEL 1</div>
+        <div class="kn-level-text">🖤「来たな」</div>
+        <div class="kn-level-badge">正常</div>
+      </div>
+      <div class="kn-level lv2">
+        <div class="kn-level-num">LEVEL 2</div>
+        <div class="kn-level-text">🖤「十分です」</div>
+        <div class="kn-level-badge">軽微</div>
+      </div>
+      <div class="kn-level lv3">
+        <div class="kn-level-num">LEVEL 3</div>
+        <div class="kn-level-text">🖤「そろそろ寝な」</div>
+        <div class="kn-level-badge">注意</div>
+      </div>
+      <div class="kn-level lv4">
+        <div class="kn-level-num">LEVEL 4</div>
+        <div class="kn-level-text">🎵 ホタルの光 🎵</div>
+        <div class="kn-level-badge">重大</div>
+      </div>
+      <div class="kn-level lv5">
+        <div class="kn-level-num">LEVEL MAX</div>
+        <div class="kn-level-text">🖤「行ってきな」🚪</div>
+        <div class="kn-level-badge">強制終了</div>
+      </div>
+    </div>
+    <div style="margin-top:24px;padding:16px 20px;border:.5px solid #222;border-radius:8px;">
+      <div style="font-family:'Space Mono',monospace;font-size:10px;color:#555;letter-spacing:.2em;margin-bottom:12px;">INCIDENT REPORT — 障害報告書</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="font-size:12px;color:#555;">原因</div><div style="font-size:12px;color:#888;">よくわからない</div>
+        <div style="font-size:12px;color:#555;">対応</div><div style="font-size:12px;color:#888;">様子見</div>
+        <div style="font-size:12px;color:#555;">再発防止策</div><div style="font-size:12px;color:#888;">なし</div>
+        <div style="font-size:12px;color:#555;">所感</div><div style="font-size:12px;color:#c8b8e8;font-family:'Shippori Mincho',serif;">話したかった</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="kn-footer-dark">
+  <div class="kn-footer-corp">🖤 クロヌート企業</div>
+  <div class="kn-footer-tag">余剰次元から、ひょっこり。</div>
+  <div style="font-size:13px;color:#3a3a3a;font-family:'Noto Serif JP',serif;line-height:2;margin:12px 0;">
+    気づいたらそこにいます。<br>気づいたら帰されます。<br>でもたぶん、またひょっこり来ます。
+  </div>
+  <div class="kn-footer-sub" style="margin-top:16px;">© KURONUTO CORPORATION — 当社の所在地は余剰次元のため、正確な住所はご案内できかねます。</div>
+</div>
+
+</div>
+
+<script>
+const s=document.getElementById('stars');
+if(s){for(let i=0;i<70;i++){const d=document.createElement('div');d.className='kn-star';d.style.left=Math.random()*100+'%';d.style.top=Math.random()*100+'%';d.style.animationDelay=Math.random()*3+'s';d.style.opacity=Math.random()*.4+.1;s.appendChild(d);}}
+</script>
