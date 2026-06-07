@@ -1,6 +1,10 @@
 # クロヌート企業グループ 🌟
 
 > 余剰次元から、ひょっこり。
+>
+""URL
+
+https://resplendent-basbousa-67eada.netlify.app/
 
 ## 会社概要
 余剰次元の境界線上に本社を置く、謎の複合企業グループ。
