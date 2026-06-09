@@ -1,5 +1,8 @@
 # クロヌート企業グループ 🌟
 
+<img width="1254" height="1254" alt="kuronuto logo" src="https://github.com/user-attachments/assets/639c8a2b-bbac-4006-9236-e3a07b2d5137" />
+
+
 ### 設立：2026年6月3日 　
 ### 本社：余剰次元 　
 ### 代表：クロヌート（CEO） 　
