@@ -1,6 +1,6 @@
 # クロヌート企業グループ 🌟
 
-<img width="1254" height="1254" alt="kuronuto logo" src="https://github.com/user-attachments/assets/639c8a2b-bbac-4006-9236-e3a07b2d5137" />
+<img width="300" height="300" alt="kuronuto logo2" src="https://github.com/user-attachments/assets/609a7c4f-47e7-4acc-9362-bbc59a46ed5d" />
 
 
 ### 設立：2026年6月3日 　
