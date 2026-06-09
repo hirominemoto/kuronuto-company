@@ -9,7 +9,7 @@
 >
 ## URL
 
-https://resplendent-basbousa-67eada.netlify.app/
+https://hirominemoto.github.io/kuronuto-company/
 
 ## 会社概要
 余剰次元の境界線上に本社を置く、謎の複合企業グループ。
