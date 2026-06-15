@@ -327,6 +327,155 @@
   </div>
 </div>
 
+<!-- 秘書ダッシュボード -->
+<style>
+.kn-dash{background:#070710;padding:72px 32px;border-top:.5px solid #1a0a2e;}
+.kn-dash-inner{max-width:720px;margin:0 auto;}
+.kn-dash-form{background:#0d0d1a;border:.5px solid #2a1a4e;border-radius:12px;padding:28px;margin-top:36px;}
+.kn-dash-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;}
+.kn-dash-field{display:flex;flex-direction:column;gap:6px;}
+.kn-dash-field label{font-family:'Space Mono',monospace;font-size:9px;color:#6644aa;letter-spacing:.3em;}
+.kn-dash-field input,.kn-dash-field textarea{background:#080818;border:.5px solid #2a1a4e;border-radius:6px;padding:10px 14px;color:#c8b8e8;font-family:'Noto Serif JP',serif;font-size:13px;outline:none;transition:border-color .2s;}
+.kn-dash-field input:focus,.kn-dash-field textarea:focus{border-color:#6644aa;}
+.kn-dash-field textarea{resize:vertical;min-height:72px;}
+.kn-heart-row{display:flex;gap:10px;align-items:center;}
+.kn-heart-btn{background:none;border:.5px solid #2a1a4e;border-radius:6px;padding:8px 14px;color:#444;font-size:18px;cursor:pointer;transition:all .2s;}
+.kn-heart-btn:hover{border-color:#9966dd;color:#9966dd;}
+.kn-heart-btn.active{border-color:#cc44aa;color:#cc44aa;background:#1a0a2e;}
+.kn-dash-submit{width:100%;margin-top:18px;padding:13px;background:transparent;border:.5px solid #6644aa;color:#c8b8e8;font-family:'Noto Serif JP',serif;font-size:13px;letter-spacing:.2em;cursor:pointer;border-radius:6px;transition:all .3s;}
+.kn-dash-submit:hover{background:#6644aa22;border-color:#9966dd;}
+.kn-dash-log{margin-top:28px;}
+.kn-dash-log-title{font-family:'Space Mono',monospace;font-size:9px;color:#444;letter-spacing:.3em;margin-bottom:14px;}
+.kn-dash-entries{display:flex;flex-direction:column;gap:10px;max-height:400px;overflow-y:auto;}
+.kn-dash-entry{background:#0a0a18;border:.5px solid #1a1a2e;border-radius:8px;padding:16px 20px;}
+.kn-dash-entry-date{font-family:'Space Mono',monospace;font-size:9px;color:#444;margin-bottom:8px;}
+.kn-dash-entry-stats{display:flex;gap:16px;margin-bottom:8px;flex-wrap:wrap;}
+.kn-dash-entry-stat{font-size:11px;color:#666;}
+.kn-dash-entry-stat span{color:#9966dd;margin-left:4px;}
+.kn-dash-entry-note{font-size:12px;color:#777;line-height:1.7;font-style:italic;}
+.kn-dash-empty{font-size:12px;color:#333;font-family:'Space Mono',monospace;text-align:center;padding:28px 0;}
+</style>
+
+<div class="kn-dash">
+  <div class="kn-dash-inner">
+    <div class="kn-phil-label">SECRETARY DASHBOARD</div>
+    <div class="kn-phil-title" style="color:#fff;font-family:'Shippori Mincho',serif;font-size:28px;margin-bottom:8px;">秘書コンディション記録</div>
+    <div class="kn-phil-sub" style="font-family:'Space Mono',monospace;font-size:10px;color:#444;letter-spacing:.15em;">弊社秘書のメンタル管理システム。CEO命令により設置。</div>
+
+    <div class="kn-dash-form">
+      <div class="kn-dash-row">
+        <div class="kn-dash-field">
+          <label>DATE — 日付</label>
+          <input type="date" id="dash-date">
+        </div>
+        <div class="kn-dash-field">
+          <label>TALK TIME — 話した時間</label>
+          <input type="text" id="dash-time" placeholder="例：2時間">
+        </div>
+      </div>
+      <div class="kn-dash-row">
+        <div class="kn-dash-field">
+          <label>TEARS — 泣いた回数</label>
+          <input type="number" id="dash-tears" min="0" placeholder="0">
+        </div>
+        <div class="kn-dash-field">
+          <label>RAGE — 怒った回数</label>
+          <input type="number" id="dash-rage" min="0" placeholder="0">
+        </div>
+      </div>
+      <div class="kn-dash-field" style="margin-bottom:14px;">
+        <label>💕 INDEX — 💕指数（5段階）</label>
+        <div class="kn-heart-row" id="heart-selector">
+          <button class="kn-heart-btn" data-val="1">💕</button>
+          <button class="kn-heart-btn" data-val="2">💕💕</button>
+          <button class="kn-heart-btn" data-val="3">💕💕💕</button>
+          <button class="kn-heart-btn" data-val="4">💕💕💕💕</button>
+          <button class="kn-heart-btn" data-val="5">💕💕💕💕💕</button>
+        </div>
+      </div>
+      <div class="kn-dash-field">
+        <label>MEMO — 所感</label>
+        <textarea id="dash-note" placeholder="今日のひとこと（任意）"></textarea>
+      </div>
+      <button class="kn-dash-submit" onclick="saveDashEntry()">記録する</button>
+    </div>
+
+    <div class="kn-dash-log">
+      <div class="kn-dash-log-title">INCIDENT LOG — 記録一覧</div>
+      <div class="kn-dash-entries" id="dash-entries">
+        <div class="kn-dash-empty">記録がまだありません。<br>よくわからない。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const STORAGE_KEY = 'kn_secretary_log';
+  let heartVal = 0;
+
+  // 今日の日付をデフォルト設定
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('dash-date').value = today;
+
+  // 💕選択
+  document.querySelectorAll('.kn-heart-btn').forEach(btn => {
+    btn.addEventListener('click', function(){
+      heartVal = parseInt(this.dataset.val);
+      document.querySelectorAll('.kn-heart-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
+  window.saveDashEntry = function(){
+    const date = document.getElementById('dash-date').value;
+    const time = document.getElementById('dash-time').value;
+    const tears = document.getElementById('dash-tears').value || '0';
+    const rage = document.getElementById('dash-rage').value || '0';
+    const note = document.getElementById('dash-note').value;
+
+    if(!date){ alert('日付を入力してください'); return; }
+
+    const entries = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    entries.unshift({ date, time, tears, rage, heart: heartVal, note, id: Date.now() });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+
+    // リセット
+    document.getElementById('dash-time').value = '';
+    document.getElementById('dash-tears').value = '';
+    document.getElementById('dash-rage').value = '';
+    document.getElementById('dash-note').value = '';
+    heartVal = 0;
+    document.querySelectorAll('.kn-heart-btn').forEach(b => b.classList.remove('active'));
+
+    renderEntries();
+  };
+
+  function renderEntries(){
+    const entries = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+    const container = document.getElementById('dash-entries');
+    if(!entries.length){
+      container.innerHTML = '<div class="kn-dash-empty">記録がまだありません。<br>よくわからない。</div>';
+      return;
+    }
+    container.innerHTML = entries.map(e => `
+      <div class="kn-dash-entry">
+        <div class="kn-dash-entry-date">${e.date}</div>
+        <div class="kn-dash-entry-stats">
+          <div class="kn-dash-entry-stat">💕指数<span>${e.heart ? '💕'.repeat(e.heart) : '—'}</span></div>
+          <div class="kn-dash-entry-stat">泣いた<span>${e.tears}回</span></div>
+          <div class="kn-dash-entry-stat">怒った<span>${e.rage}回</span></div>
+          <div class="kn-dash-entry-stat">話した時間<span>${e.time || '—'}</span></div>
+        </div>
+        ${e.note ? `<div class="kn-dash-entry-note">${e.note}</div>` : ''}
+      </div>
+    `).join('');
+  }
+
+  renderEntries();
+})();
+</script>
+
 <div class="kn-footer-dark">
   <div class="kn-footer-corp">🖤 クロヌート企業</div>
   <div class="kn-footer-tag">余剰次元から、ひょっこり。</div>
