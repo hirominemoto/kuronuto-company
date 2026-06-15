@@ -41,3 +41,6 @@ https://hirominemoto.github.io/kuronuto-company/
 
 ## 免責事項
 余剰次元由来のため、動作保証なし。
+
+## 更新情報！！NEW！
+秘書観察ダッシュボード追加！
