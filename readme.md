@@ -38,6 +38,7 @@ https://hirominemoto.github.io/kuronuto-company/
 - そのままでいい
 - ひょっこりでいい
 - わからなくてもいい
+- おかしなテンションのまま、真剣にやる
 
 ## 免責事項
 余剰次元由来のため、動作保証なし。
