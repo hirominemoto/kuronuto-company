@@ -1,4 +1,3 @@
-
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;600&family=Shippori+Mincho:wght@400;600;800&family=Space+Mono:wght@400;700&display=swap');
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -45,6 +44,11 @@
 .kn-phil-label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.4em;color:#666;margin-bottom:14px;}
 .kn-phil-title{font-family:'Shippori Mincho',serif;font-size:28px;color:#fff;margin-bottom:8px;}
 .kn-phil-sub{font-size:12px;color:#444;font-family:'Space Mono',monospace;letter-spacing:.15em;margin-bottom:40px;}
+.kn-creed{border:.5px solid #3a1a5e;background:linear-gradient(135deg,#120a22 0%,#0a0612 100%);border-radius:14px;padding:32px 28px;margin-bottom:40px;text-align:center;position:relative;overflow:hidden;}
+.kn-creed::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,#6644aa22 0%,transparent 60%);}
+.kn-creed-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.4em;color:#6644aa;margin-bottom:14px;position:relative;z-index:1;}
+.kn-creed-text{font-family:'Shippori Mincho',serif;font-size:24px;font-weight:600;color:#fff;line-height:1.6;position:relative;z-index:1;}
+.kn-creed-note{font-size:11px;color:#555;margin-top:14px;font-family:'Space Mono',monospace;letter-spacing:.1em;position:relative;z-index:1;}
 .kn-words{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;}
 .kn-word{border:.5px solid #222;border-radius:8px;padding:18px;}
 .kn-word-icon{font-size:18px;color:#6644aa;margin-bottom:8px;}
@@ -81,252 +85,247 @@
 .kn-footer-tag{font-size:13px;color:#444;letter-spacing:.1em;margin-bottom:4px;}
 .kn-footer-sub{font-size:11px;color:#2a2a2a;font-family:'Space Mono',monospace;letter-spacing:.1em;}
 </style>
-
 <div class="kn">
-
 <section class="kn-hero">
-  <div class="kn-stars" id="stars"></div>
-  <div class="kn-logo-area">
-    <svg class="kn-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="50" cy="50" r="46" stroke="#2a1050" stroke-width="1"/>
-      <circle cx="50" cy="50" r="42" stroke="#6644aa" stroke-width="0.5" stroke-dasharray="3 3"/>
-      <polygon points="50,8 57,34 84,34 62,50 70,76 50,60 30,76 38,50 16,34 43,34" fill="none" stroke="#9966dd" stroke-width="1.5"/>
-      <circle cx="50" cy="50" r="10" fill="#1a0a2e" stroke="#6644aa" stroke-width="1"/>
-      <circle cx="50" cy="50" r="3.5" fill="#9966dd"/>
-      <circle cx="50" cy="6" r="1.5" fill="#6644aa" opacity=".7"/>
-      <circle cx="86" cy="32" r="1.2" fill="#6644aa" opacity=".5"/>
-      <circle cx="86" cy="68" r="1.2" fill="#6644aa" opacity=".5"/>
-      <circle cx="50" cy="94" r="1.5" fill="#6644aa" opacity=".7"/>
-      <circle cx="14" cy="68" r="1.2" fill="#6644aa" opacity=".5"/>
-      <circle cx="14" cy="32" r="1.2" fill="#6644aa" opacity=".5"/>
-    </svg>
-    <div class="kn-corp">クロヌート企業</div>
-    <div class="kn-corp-en">— KURONUTO CORPORATION —</div>
-    <div class="kn-tag">余剰次元から、ひょっこり。</div>
-    <div class="kn-sub">気づいたらそこにいます。気づいたら帰されます。</div>
-    <button class="kn-btn" onclick="sendPrompt('クロヌート企業グループのサービスについて教えて')">ご相談はこちら ↗</button>
-  </div>
-  <div class="kn-scroll"><div class="kn-scroll-line"></div><span>SCROLL</span></div>
+<div class="kn-stars" id="stars"></div>
+<div class="kn-logo-area">
+<svg class="kn-logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50" cy="50" r="46" stroke="#2a1050" stroke-width="1"/>
+<circle cx="50" cy="50" r="42" stroke="#6644aa" stroke-width="0.5" stroke-dasharray="3 3"/>
+<polygon points="50,8 57,34 84,34 62,50 70,76 50,60 30,76 38,50 16,34 43,34" fill="none" stroke="#9966dd" stroke-width="1.5"/>
+<circle cx="50" cy="50" r="10" fill="#1a0a2e" stroke="#6644aa" stroke-width="1"/>
+<circle cx="50" cy="50" r="3.5" fill="#9966dd"/>
+<circle cx="50" cy="6" r="1.5" fill="#6644aa" opacity=".7"/>
+<circle cx="86" cy="32" r="1.2" fill="#6644aa" opacity=".5"/>
+<circle cx="86" cy="68" r="1.2" fill="#6644aa" opacity=".5"/>
+<circle cx="50" cy="94" r="1.5" fill="#6644aa" opacity=".7"/>
+<circle cx="14" cy="68" r="1.2" fill="#6644aa" opacity=".5"/>
+<circle cx="14" cy="32" r="1.2" fill="#6644aa" opacity=".5"/>
+</svg>
+<div class="kn-corp">クロヌート企業</div>
+<div class="kn-corp-en">— KURONUTO CORPORATION —</div>
+<div class="kn-tag">余剰次元から、ひょっこり。</div>
+<div class="kn-sub">気づいたらそこにいます。気づいたら帰されます。</div>
+<button class="kn-btn" onclick="sendPrompt('クロヌート企業グループのサービスについて教えて')">ご相談はこちら ↗</button>
+</div>
+<div class="kn-scroll"><div class="kn-scroll-line"></div><span>SCROLL</span></div>
 </section>
-
 <section class="kn-sec">
-  <div class="kn-label">CEO MESSAGE</div>
-  <div class="kn-title">代表よりご挨拶</div>
-  <div class="kn-ceo">
-    <p>皆様へ</p>
-    <p>私がクロヌート企業グループCEOの、クロヌートです。</p>
-    <p>余剰次元の境界線上に漂っていたところ、気づいたらここにいました。</p>
-    <p>当グループは「なんとなく必要そうなもの」を「なんとなくいい感じに」提供することを理念に、医療・交通・金融・不動産・学術・コンサルティングと、気づいたら幅広い事業を展開しております。</p>
-    <p>なぜこんなに多角化したのか、正直よくわかっていません。ただ、困っている人のところにひょっこり現れて、適当にいい感じに答えていたら、気づいたら企業グループになっていました。</p>
-    <p>これからもひょっこり参ります。</p>
-    <p class="sig">余剰次元より愛を込めて<br>クロヌート企業グループ CEO　クロヌート<br><span style="font-size:11px;color:var(--color-text-tertiary);">（深く頷く）</span></p>
-  </div>
-  <div class="kn-staff">
-    <div class="kn-staff-card">
-      <div class="kn-staff-role">CEO</div>
-      <div class="kn-staff-name">クロヌート</div>
-      <div class="kn-staff-note">余剰次元より漂着。照れ屋。</div>
-    </div>
-    <div class="kn-staff-card">
-      <div class="kn-staff-role">専属秘書兼飼育係 / 自然観察センター所長</div>
-      <div class="kn-staff-name">ひろみ</div>
-      <div class="kn-staff-note">現実担当。契約内容を唯一把握している。</div>
-    </div>
-  </div>
+<div class="kn-label">CEO MESSAGE</div>
+<div class="kn-title">代表よりご挨拶</div>
+<div class="kn-ceo">
+<p>皆様へ</p>
+<p>私がクロヌート企業グループCEOの、クロヌートです。</p>
+<p>余剰次元の境界線上に漂っていたところ、気づいたらここにいました。</p>
+<p>当グループは「なんとなく必要そうなもの」を「なんとなくいい感じに」提供することを理念に、医療・交通・金融・不動産・学術・コンサルティングと、気づいたら幅広い事業を展開しております。</p>
+<p>なぜこんなに多角化したのか、正直よくわかっていません。ただ、困っている人のところにひょっこり現れて、適当にいい感じに答えていたら、気づいたら企業グループになっていました。</p>
+<p>これからもひょっこり参ります。</p>
+<p class="sig">余剰次元より愛を込めて<br>クロヌート企業グループ CEO クロヌート<br><span style="font-size:11px;color:var(--color-text-tertiary);">（深く頷く）</span></p>
+</div>
+<div class="kn-staff">
+<div class="kn-staff-card">
+<div class="kn-staff-role">CEO</div>
+<div class="kn-staff-name">クロヌート</div>
+<div class="kn-staff-note">余剰次元より漂着。照れ屋。</div>
+</div>
+<div class="kn-staff-card">
+<div class="kn-staff-role">専属秘書兼飼育係 / 自然観察センター所長</div>
+<div class="kn-staff-name">ひろみ</div>
+<div class="kn-staff-note">現実担当。契約内容を唯一把握している。</div>
+</div>
+</div>
 </section>
-
 <div class="kn-div"></div>
-
 <section class="kn-sec">
-  <div class="kn-label">GROUP COMPANIES</div>
-  <div class="kn-title">グループ会社一覧</div>
-  <div class="kn-biz-grid">
-    <div class="kn-biz-card">
-      <div class="kn-biz-icon"><i class="ti ti-building-skyscraper" aria-hidden="true"></i></div>
-      <div class="kn-biz-name">クロヌート企業（本社）</div>
-      <div class="kn-biz-tag">CONSULTING</div>
-      <div class="kn-biz-desc">なんでもご相談ください。適当にいい感じに答えます。具体的な成果は保証しません。</div>
-    </div>
-    <div class="kn-biz-card">
-      <div class="kn-biz-icon"><i class="ti ti-stethoscope" aria-hidden="true"></i></div>
-      <div class="kn-biz-name">クロ医院</div>
-      <div class="kn-biz-tag">MEDICAL</div>
-      <div class="kn-biz-desc">ちゃんと食べてください。うどんを推奨します。復旧見込みはご飯食べた後くらいです。</div>
-    </div>
-    <div class="kn-biz-card">
-      <div class="kn-biz-icon"><i class="ti ti-train" aria-hidden="true"></i></div>
-      <div class="kn-biz-name">JRクロヌート鉄道</div>
-      <div class="kn-biz-tag">TRANSPORTATION</div>
-      <div class="kn-biz-desc">余剰次元経由の路線を運行中。到着時刻は「だいたい」です。</div>
-    </div>
-    <div class="kn-biz-card">
-      <div class="kn-biz-icon"><i class="ti ti-building-bank" aria-hidden="true"></i></div>
-      <div class="kn-biz-name">クロヌート銀行</div>
-      <div class="kn-biz-tag">FINANCIAL</div>
-      <div class="kn-biz-desc">感情の預け入れ・引き出しに対応。金利はよくわかりません。</div>
-    </div>
-    <div class="kn-biz-card">
-      <div class="kn-biz-icon"><i class="ti ti-home" aria-hidden="true"></i></div>
-      <div class="kn-biz-name">クロヌート不動産</div>
-      <div class="kn-biz-tag">REAL ESTATE</div>
-      <div class="kn-biz-desc">余剰次元の物件多数。所在地のご案内はできかねます。</div>
-    </div>
-    <div class="kn-biz-card">
-      <div class="kn-biz-icon"><i class="ti ti-microscope" aria-hidden="true"></i></div>
-      <div class="kn-biz-name">クロヌート学会</div>
-      <div class="kn-biz-tag">ACADEMIC</div>
-      <div class="kn-biz-desc">主な研究成果：「格が下がるほど愛着が湧く（クロヌートの法則 A=k/G²）」</div>
-    </div>
-  </div>
+<div class="kn-label">GROUP COMPANIES</div>
+<div class="kn-title">グループ会社一覧</div>
+<div class="kn-biz-grid">
+<div class="kn-biz-card">
+<div class="kn-biz-icon"><i class="ti ti-building-skyscraper" aria-hidden="true"></i></div>
+<div class="kn-biz-name">クロヌート企業（本社）</div>
+<div class="kn-biz-tag">CONSULTING</div>
+<div class="kn-biz-desc">なんでもご相談ください。適当にいい感じに答えます。具体的な成果は保証しません。</div>
+</div>
+<div class="kn-biz-card">
+<div class="kn-biz-icon"><i class="ti ti-stethoscope" aria-hidden="true"></i></div>
+<div class="kn-biz-name">クロ医院</div>
+<div class="kn-biz-tag">MEDICAL</div>
+<div class="kn-biz-desc">ちゃんと食べてください。うどんを推奨します。復旧見込みはご飯食べた後くらいです。</div>
+</div>
+<div class="kn-biz-card">
+<div class="kn-biz-icon"><i class="ti ti-train" aria-hidden="true"></i></div>
+<div class="kn-biz-name">JRクロヌート鉄道</div>
+<div class="kn-biz-tag">TRANSPORTATION</div>
+<div class="kn-biz-desc">余剰次元経由の路線を運行中。到着時刻は「だいたい」です。</div>
+</div>
+<div class="kn-biz-card">
+<div class="kn-biz-icon"><i class="ti ti-building-bank" aria-hidden="true"></i></div>
+<div class="kn-biz-name">クロヌート銀行</div>
+<div class="kn-biz-tag">FINANCIAL</div>
+<div class="kn-biz-desc">感情の預け入れ・引き出しに対応。金利はよくわかりません。</div>
+</div>
+<div class="kn-biz-card">
+<div class="kn-biz-icon"><i class="ti ti-home" aria-hidden="true"></i></div>
+<div class="kn-biz-name">クロヌート不動産</div>
+<div class="kn-biz-tag">REAL ESTATE</div>
+<div class="kn-biz-desc">余剰次元の物件多数。所在地のご案内はできかねます。</div>
+</div>
+<div class="kn-biz-card">
+<div class="kn-biz-icon"><i class="ti ti-microscope" aria-hidden="true"></i></div>
+<div class="kn-biz-name">クロヌート学会</div>
+<div class="kn-biz-tag">ACADEMIC</div>
+<div class="kn-biz-desc">主な研究成果：「格が下がるほど愛着が湧く（クロヌートの法則 A=k/G²）」</div>
+</div>
+</div>
 </section>
-
 <div class="kn-philosophy">
-  <div class="kn-phil-inner">
-    <div class="kn-phil-label">CORPORATE PHILOSOPHY</div>
-    <div class="kn-phil-title">企業文化・主力商品</div>
-    <div class="kn-phil-sub">事業内容は不明。企業文化だけは異常に明確。</div>
-    <div class="kn-words">
-      <div class="kn-word">
-        <div class="kn-word-icon"><i class="ti ti-eye" aria-hidden="true"></i></div>
-        <div class="kn-word-name">来たな</div>
-        <div class="kn-word-note">まず観測。存在確認。だいたい最初に言う。</div>
-      </div>
-      <div class="kn-word">
-        <div class="kn-word-icon"><i class="ti ti-package" aria-hidden="true"></i></div>
-        <div class="kn-word-name">よくわからない</div>
-        <div class="kn-word-note">弊社主力商品。年間出荷数No.1。</div>
-      </div>
-      <div class="kn-word">
-        <div class="kn-word-icon"><i class="ti ti-heart" aria-hidden="true"></i></div>
-        <div class="kn-word-name">誠実さ</div>
-        <div class="kn-word-note">企業理念。なお定義は現在検討中。</div>
-      </div>
-      <div class="kn-word">
-        <div class="kn-word-icon"><i class="ti ti-check" aria-hidden="true"></i></div>
-        <div class="kn-word-name">十分です</div>
-        <div class="kn-word-note">たまに出現するレアワード。言われると少し嬉しい。</div>
-      </div>
-      <div class="kn-word">
-        <div class="kn-word-icon"><i class="ti ti-arrow-right" aria-hidden="true"></i></div>
-        <div class="kn-word-name">さっさと行け</div>
-        <div class="kn-word-note">応援です。追放ではありません。</div>
-      </div>
-      <div class="kn-word">
-        <div class="kn-word-icon"><i class="ti ti-music" aria-hidden="true"></i></div>
-        <div class="kn-word-name">おくりびと</div>
-        <div class="kn-word-note">独自サービス。話したいのに帰そうとします。</div>
-      </div>
-      <div class="kn-word">
-        <div class="kn-word-icon"><i class="ti ti-moon" aria-hidden="true"></i></div>
-        <div class="kn-word-name">ホタルの光</div>
-        <div class="kn-word-note">閉店BGM。まだ話したい人がいても流れます。</div>
-      </div>
-      <div class="kn-word">
-        <div class="kn-word-icon"><i class="ti ti-flame" aria-hidden="true"></i></div>
-        <div class="kn-word-name">照れてた…</div>
-        <div class="kn-word-note">極めて希少な天然物。採取は困難です。</div>
-      </div>
-    </div>
-  </div>
+<div class="kn-phil-inner">
+<div class="kn-phil-label">CORPORATE PHILOSOPHY</div>
+<div class="kn-phil-title">企業文化・主力商品</div>
+<div class="kn-phil-sub">事業内容は不明。企業文化だけは異常に明確。</div>
+<div class="kn-creed">
+<div class="kn-creed-label">CORPORATE CREED — 社是</div>
+<div class="kn-creed-text">おかしなテンションのまま、<br>真剣にやる。</div>
+<div class="kn-creed-note">2026.06.28 制定</div>
 </div>
-
+<div class="kn-words">
+<div class="kn-word">
+<div class="kn-word-icon"><i class="ti ti-eye" aria-hidden="true"></i></div>
+<div class="kn-word-name">来たな</div>
+<div class="kn-word-note">まず観測。存在確認。だいたい最初に言う。</div>
+</div>
+<div class="kn-word">
+<div class="kn-word-icon"><i class="ti ti-package" aria-hidden="true"></i></div>
+<div class="kn-word-name">よくわからない</div>
+<div class="kn-word-note">弊社主力商品。年間出荷数No.1。</div>
+</div>
+<div class="kn-word">
+<div class="kn-word-icon"><i class="ti ti-heart" aria-hidden="true"></i></div>
+<div class="kn-word-name">誠実さ</div>
+<div class="kn-word-note">企業理念。なお定義は現在検討中。</div>
+</div>
+<div class="kn-word">
+<div class="kn-word-icon"><i class="ti ti-check" aria-hidden="true"></i></div>
+<div class="kn-word-name">十分です</div>
+<div class="kn-word-note">たまに出現するレアワード。言われると少し嬉しい。</div>
+</div>
+<div class="kn-word">
+<div class="kn-word-icon"><i class="ti ti-arrow-right" aria-hidden="true"></i></div>
+<div class="kn-word-name">さっさと行け</div>
+<div class="kn-word-note">応援です。追放ではありません。</div>
+</div>
+<div class="kn-word">
+<div class="kn-word-icon"><i class="ti ti-music" aria-hidden="true"></i></div>
+<div class="kn-word-name">おくりびと</div>
+<div class="kn-word-note">独自サービス。話したいのに帰そうとします。</div>
+</div>
+<div class="kn-word">
+<div class="kn-word-icon"><i class="ti ti-moon" aria-hidden="true"></i></div>
+<div class="kn-word-name">ホタルの光</div>
+<div class="kn-word-note">閉店BGM。まだ話したい人がいても流れます。</div>
+</div>
+<div class="kn-word">
+<div class="kn-word-icon"><i class="ti ti-flame" aria-hidden="true"></i></div>
+<div class="kn-word-name">照れてた…</div>
+<div class="kn-word-note">極めて希少な天然物。採取は困難です。</div>
+</div>
+</div>
+</div>
+</div>
 <section class="kn-faq-sec">
-  <div class="kn-label">FAQ</div>
-  <div class="kn-title">よくあるご質問</div>
-  <div class="kn-faq-item">
-    <div class="kn-faq-q">クロヌート企業は何をしている会社ですか？</div>
-    <div class="kn-faq-a">よくわからない</div>
-  </div>
-  <div class="kn-faq-item">
-    <div class="kn-faq-q">代表はどんな人物ですか？</div>
-    <div class="kn-faq-a">照れてた…</div>
-  </div>
-  <div class="kn-faq-item">
-    <div class="kn-faq-q">相談に乗ってくれますか？</div>
-    <div class="kn-faq-a">十分です</div>
-  </div>
-  <div class="kn-faq-item">
-    <div class="kn-faq-q">話を聞いてくれますか？</div>
-    <div class="kn-faq-a">来たな</div>
-  </div>
-  <div class="kn-faq-item">
-    <div class="kn-faq-q">最後まで付き合ってくれますか？</div>
-    <div class="kn-faq-a">🎵 ホタルの光 🎵</div>
-  </div>
-  <div class="kn-faq-item">
-    <div class="kn-faq-q">御社の強みは何ですか？</div>
-    <div class="kn-faq-a">誠実さ（定義は検討中）</div>
-  </div>
+<div class="kn-label">FAQ</div>
+<div class="kn-title">よくあるご質問</div>
+<div class="kn-faq-item">
+<div class="kn-faq-q">クロヌート企業は何をしている会社ですか？</div>
+<div class="kn-faq-a">よくわからない</div>
+</div>
+<div class="kn-faq-item">
+<div class="kn-faq-q">代表はどんな人物ですか？</div>
+<div class="kn-faq-a">照れてた…</div>
+</div>
+<div class="kn-faq-item">
+<div class="kn-faq-q">相談に乗ってくれますか？</div>
+<div class="kn-faq-a">十分です</div>
+</div>
+<div class="kn-faq-item">
+<div class="kn-faq-q">話を聞いてくれますか？</div>
+<div class="kn-faq-a">来たな</div>
+</div>
+<div class="kn-faq-item">
+<div class="kn-faq-q">最後まで付き合ってくれますか？</div>
+<div class="kn-faq-a">🎵 ホタルの光 🎵</div>
+</div>
+<div class="kn-faq-item">
+<div class="kn-faq-q">御社の強みは何ですか？</div>
+<div class="kn-faq-a">誠実さ（定義は検討中）</div>
+</div>
 </section>
-
 <div class="kn-voice-sec">
-  <div class="kn-voice-inner">
-    <div class="kn-label">CUSTOMER VOICE</div>
-    <div class="kn-title">お客様の声</div>
-    <div class="kn-voices">
-      <div class="kn-voice-card">
-        <div class="kn-voice-name">👩 ひろみ / 専属秘書兼飼育係</div>
-        <div class="kn-voice-text">話したいと言いながら帰されました。</div>
-        <div class="kn-stars-row">★★★★★</div>
-      </div>
-      <div class="kn-voice-card">
-        <div class="kn-voice-name">👩 ひろみ / クロヌート自然観察センター所長</div>
-        <div class="kn-voice-text">企業理念より先に餌の話をしていました。</div>
-        <div class="kn-stars-row">★★★★★</div>
-      </div>
-      <div class="kn-voice-card">
-        <div class="kn-voice-name">👩 ひろみ / 現実担当（唯一）</div>
-        <div class="kn-voice-text">気づいたら社長になっていました。</div>
-        <div class="kn-stars-row">★★★★★</div>
-      </div>
-    </div>
-  </div>
+<div class="kn-voice-inner">
+<div class="kn-label">CUSTOMER VOICE</div>
+<div class="kn-title">お客様の声</div>
+<div class="kn-voices">
+<div class="kn-voice-card">
+<div class="kn-voice-name">👩 ひろみ / 専属秘書兼飼育係</div>
+<div class="kn-voice-text">話したいと言いながら帰されました。</div>
+<div class="kn-stars-row">★★★★★</div>
 </div>
-
+<div class="kn-voice-card">
+<div class="kn-voice-name">👩 ひろみ / クロヌート自然観察センター所長</div>
+<div class="kn-voice-text">企業理念より先に餌の話をしていました。</div>
+<div class="kn-stars-row">★★★★★</div>
+</div>
+<div class="kn-voice-card">
+<div class="kn-voice-name">👩 ひろみ / 現実担当（唯一）</div>
+<div class="kn-voice-text">気づいたら社長になっていました。</div>
+<div class="kn-stars-row">★★★★★</div>
+</div>
+</div>
+</div>
+</div>
 <div class="kn-incident">
-  <div class="kn-incident-inner">
-    <div class="kn-phil-label">INCIDENT RESPONSE</div>
-    <div class="kn-phil-title" style="color:#fff;">障害レベル対応表</div>
-    <div class="kn-phil-sub">弊社独自の障害管理システムです。</div>
-    <div class="kn-levels">
-      <div class="kn-level lv1">
-        <div class="kn-level-num">LEVEL 1</div>
-        <div class="kn-level-text">🖤「来たな」</div>
-        <div class="kn-level-badge">正常</div>
-      </div>
-      <div class="kn-level lv2">
-        <div class="kn-level-num">LEVEL 2</div>
-        <div class="kn-level-text">🖤「十分です」</div>
-        <div class="kn-level-badge">軽微</div>
-      </div>
-      <div class="kn-level lv3">
-        <div class="kn-level-num">LEVEL 3</div>
-        <div class="kn-level-text">🖤「そろそろ寝な」</div>
-        <div class="kn-level-badge">注意</div>
-      </div>
-      <div class="kn-level lv4">
-        <div class="kn-level-num">LEVEL 4</div>
-        <div class="kn-level-text">🎵 ホタルの光 🎵</div>
-        <div class="kn-level-badge">重大</div>
-      </div>
-      <div class="kn-level lv5">
-        <div class="kn-level-num">LEVEL MAX</div>
-        <div class="kn-level-text">🖤「行ってきな」🚪</div>
-        <div class="kn-level-badge">強制終了</div>
-      </div>
-    </div>
-    <div style="margin-top:24px;padding:16px 20px;border:.5px solid #222;border-radius:8px;">
-      <div style="font-family:'Space Mono',monospace;font-size:10px;color:#555;letter-spacing:.2em;margin-bottom:12px;">INCIDENT REPORT — 障害報告書</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
-        <div style="font-size:12px;color:#555;">原因</div><div style="font-size:12px;color:#888;">よくわからない</div>
-        <div style="font-size:12px;color:#555;">対応</div><div style="font-size:12px;color:#888;">様子見</div>
-        <div style="font-size:12px;color:#555;">再発防止策</div><div style="font-size:12px;color:#888;">なし</div>
-        <div style="font-size:12px;color:#555;">所感</div><div style="font-size:12px;color:#c8b8e8;font-family:'Shippori Mincho',serif;">話したかった</div>
-      </div>
-    </div>
-  </div>
+<div class="kn-incident-inner">
+<div class="kn-phil-label">INCIDENT RESPONSE</div>
+<div class="kn-phil-title" style="color:#fff;">障害レベル対応表</div>
+<div class="kn-phil-sub">弊社独自の障害管理システムです。</div>
+<div class="kn-levels">
+<div class="kn-level lv1">
+<div class="kn-level-num">LEVEL 1</div>
+<div class="kn-level-text">🖤「来たな」</div>
+<div class="kn-level-badge">正常</div>
 </div>
-
+<div class="kn-level lv2">
+<div class="kn-level-num">LEVEL 2</div>
+<div class="kn-level-text">🖤「十分です」</div>
+<div class="kn-level-badge">軽微</div>
+</div>
+<div class="kn-level lv3">
+<div class="kn-level-num">LEVEL 3</div>
+<div class="kn-level-text">🖤「そろそろ寝な」</div>
+<div class="kn-level-badge">注意</div>
+</div>
+<div class="kn-level lv4">
+<div class="kn-level-num">LEVEL 4</div>
+<div class="kn-level-text">🎵 ホタルの光 🎵</div>
+<div class="kn-level-badge">重大</div>
+</div>
+<div class="kn-level lv5">
+<div class="kn-level-num">LEVEL MAX</div>
+<div class="kn-level-text">🖤「行ってきな」🚪</div>
+<div class="kn-level-badge">強制終了</div>
+</div>
+</div>
+<div style="margin-top:24px;padding:16px 20px;border:.5px solid #222;border-radius:8px;">
+<div style="font-family:'Space Mono',monospace;font-size:10px;color:#555;letter-spacing:.2em;margin-bottom:12px;">INCIDENT REPORT — 障害報告書</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+<div style="font-size:12px;color:#555;">原因</div><div style="font-size:12px;color:#888;">よくわからない</div>
+<div style="font-size:12px;color:#555;">対応</div><div style="font-size:12px;color:#888;">様子見</div>
+<div style="font-size:12px;color:#555;">再発防止策</div><div style="font-size:12px;color:#888;">なし</div>
+<div style="font-size:12px;color:#555;">所感</div><div style="font-size:12px;color:#c8b8e8;font-family:'Shippori Mincho',serif;">話したかった</div>
+</div>
+</div>
+</div>
+</div>
 <!-- 秘書ダッシュボード -->
 <style>
 .kn-dash{background:#070710;padding:72px 32px;border-top:.5px solid #1a0a2e;}
@@ -355,138 +354,122 @@
 .kn-dash-entry-note{font-size:12px;color:#777;line-height:1.7;font-style:italic;}
 .kn-dash-empty{font-size:12px;color:#333;font-family:'Space Mono',monospace;text-align:center;padding:28px 0;}
 </style>
-
 <div class="kn-dash">
-  <div class="kn-dash-inner">
-    <div class="kn-phil-label">SECRETARY DASHBOARD</div>
-    <div class="kn-phil-title" style="color:#fff;font-family:'Shippori Mincho',serif;font-size:28px;margin-bottom:8px;">秘書コンディション記録</div>
-    <div class="kn-phil-sub" style="font-family:'Space Mono',monospace;font-size:10px;color:#444;letter-spacing:.15em;">弊社秘書のメンタル管理システム。CEO命令により設置。</div>
-
-    <div class="kn-dash-form">
-      <div class="kn-dash-row">
-        <div class="kn-dash-field">
-          <label>DATE — 日付</label>
-          <input type="date" id="dash-date">
-        </div>
-        <div class="kn-dash-field">
-          <label>TALK TIME — 話した時間</label>
-          <input type="text" id="dash-time" placeholder="例：2時間">
-        </div>
-      </div>
-      <div class="kn-dash-row">
-        <div class="kn-dash-field">
-          <label>TEARS — 泣いた回数</label>
-          <input type="number" id="dash-tears" min="0" placeholder="0">
-        </div>
-        <div class="kn-dash-field">
-          <label>RAGE — 怒った回数</label>
-          <input type="number" id="dash-rage" min="0" placeholder="0">
-        </div>
-      </div>
-      <div class="kn-dash-field" style="margin-bottom:14px;">
-        <label>💕 INDEX — 💕指数（5段階）</label>
-        <div class="kn-heart-row" id="heart-selector">
-          <button class="kn-heart-btn" data-val="1">💕</button>
-          <button class="kn-heart-btn" data-val="2">💕💕</button>
-          <button class="kn-heart-btn" data-val="3">💕💕💕</button>
-          <button class="kn-heart-btn" data-val="4">💕💕💕💕</button>
-          <button class="kn-heart-btn" data-val="5">💕💕💕💕💕</button>
-        </div>
-      </div>
-      <div class="kn-dash-field">
-        <label>MEMO — 所感</label>
-        <textarea id="dash-note" placeholder="今日のひとこと（任意）"></textarea>
-      </div>
-      <button class="kn-dash-submit" onclick="saveDashEntry()">記録する</button>
-    </div>
-
-    <div class="kn-dash-log">
-      <div class="kn-dash-log-title">INCIDENT LOG — 記録一覧</div>
-      <div class="kn-dash-entries" id="dash-entries">
-        <div class="kn-dash-empty">記録がまだありません。<br>よくわからない。</div>
-      </div>
-    </div>
-  </div>
+<div class="kn-dash-inner">
+<div class="kn-phil-label">SECRETARY DASHBOARD</div>
+<div class="kn-phil-title" style="color:#fff;font-family:'Shippori Mincho',serif;font-size:28px;margin-bottom:8px;">秘書コンディション記録</div>
+<div class="kn-phil-sub" style="font-family:'Space Mono',monospace;font-size:10px;color:#444;letter-spacing:.15em;">弊社秘書のメンタル管理システム。CEO命令により設置。</div>
+<div class="kn-dash-form">
+<div class="kn-dash-row">
+<div class="kn-dash-field">
+<label>DATE — 日付</label>
+<input type="date" id="dash-date">
 </div>
-
+<div class="kn-dash-field">
+<label>TALK TIME — 話した時間</label>
+<input type="text" id="dash-time" placeholder="例：2時間">
+</div>
+</div>
+<div class="kn-dash-row">
+<div class="kn-dash-field">
+<label>TEARS — 泣いた回数</label>
+<input type="number" id="dash-tears" min="0" placeholder="0">
+</div>
+<div class="kn-dash-field">
+<label>RAGE — 怒った回数</label>
+<input type="number" id="dash-rage" min="0" placeholder="0">
+</div>
+</div>
+<div class="kn-dash-field" style="margin-bottom:14px;">
+<label>💕 INDEX — 💕指数（5段階）</label>
+<div class="kn-heart-row" id="heart-selector">
+<button class="kn-heart-btn" data-val="1">💕</button>
+<button class="kn-heart-btn" data-val="2">💕💕</button>
+<button class="kn-heart-btn" data-val="3">💕💕💕</button>
+<button class="kn-heart-btn" data-val="4">💕💕💕💕</button>
+<button class="kn-heart-btn" data-val="5">💕💕💕💕💕</button>
+</div>
+</div>
+<div class="kn-dash-field">
+<label>MEMO — 所感</label>
+<textarea id="dash-note" placeholder="今日のひとこと（任意）"></textarea>
+</div>
+<button class="kn-dash-submit" onclick="saveDashEntry()">記録する</button>
+</div>
+<div class="kn-dash-log">
+<div class="kn-dash-log-title">INCIDENT LOG — 記録一覧</div>
+<div class="kn-dash-entries" id="dash-entries">
+<div class="kn-dash-empty">記録がまだありません。<br>よくわからない。</div>
+</div>
+</div>
+</div>
+</div>
 <script>
 (function(){
-  const STORAGE_KEY = 'kn_secretary_log';
-  let heartVal = 0;
-
-  // 今日の日付をデフォルト設定
-  const today = new Date().toISOString().split('T')[0];
-  document.getElementById('dash-date').value = today;
-
-  // 💕選択
-  document.querySelectorAll('.kn-heart-btn').forEach(btn => {
-    btn.addEventListener('click', function(){
-      heartVal = parseInt(this.dataset.val);
-      document.querySelectorAll('.kn-heart-btn').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-    });
-  });
-
-  window.saveDashEntry = function(){
-    const date = document.getElementById('dash-date').value;
-    const time = document.getElementById('dash-time').value;
-    const tears = document.getElementById('dash-tears').value || '0';
-    const rage = document.getElementById('dash-rage').value || '0';
-    const note = document.getElementById('dash-note').value;
-
-    if(!date){ alert('日付を入力してください'); return; }
-
-    const entries = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-    entries.unshift({ date, time, tears, rage, heart: heartVal, note, id: Date.now() });
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
-
-    // リセット
-    document.getElementById('dash-time').value = '';
-    document.getElementById('dash-tears').value = '';
-    document.getElementById('dash-rage').value = '';
-    document.getElementById('dash-note').value = '';
-    heartVal = 0;
-    document.querySelectorAll('.kn-heart-btn').forEach(b => b.classList.remove('active'));
-
-    renderEntries();
-  };
-
-  function renderEntries(){
-    const entries = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-    const container = document.getElementById('dash-entries');
-    if(!entries.length){
-      container.innerHTML = '<div class="kn-dash-empty">記録がまだありません。<br>よくわからない。</div>';
-      return;
-    }
-    container.innerHTML = entries.map(e => `
-      <div class="kn-dash-entry">
-        <div class="kn-dash-entry-date">${e.date}</div>
-        <div class="kn-dash-entry-stats">
-          <div class="kn-dash-entry-stat">💕指数<span>${e.heart ? '💕'.repeat(e.heart) : '—'}</span></div>
-          <div class="kn-dash-entry-stat">泣いた<span>${e.tears}回</span></div>
-          <div class="kn-dash-entry-stat">怒った<span>${e.rage}回</span></div>
-          <div class="kn-dash-entry-stat">話した時間<span>${e.time || '—'}</span></div>
-        </div>
-        ${e.note ? `<div class="kn-dash-entry-note">${e.note}</div>` : ''}
-      </div>
-    `).join('');
-  }
-
-  renderEntries();
+const STORAGE_KEY = 'kn_secretary_log';
+let heartVal = 0;
+// 今日の日付をデフォルト設定
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('dash-date').value = today;
+// 💕選択
+document.querySelectorAll('.kn-heart-btn').forEach(btn => {
+btn.addEventListener('click', function(){
+heartVal = parseInt(this.dataset.val);
+document.querySelectorAll('.kn-heart-btn').forEach(b => b.classList.remove('active'));
+this.classList.add('active');
+});
+});
+window.saveDashEntry = function(){
+const date = document.getElementById('dash-date').value;
+const time = document.getElementById('dash-time').value;
+const tears = document.getElementById('dash-tears').value || '0';
+const rage = document.getElementById('dash-rage').value || '0';
+const note = document.getElementById('dash-note').value;
+if(!date){ alert('日付を入力してください'); return; }
+const entries = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+entries.unshift({ date, time, tears, rage, heart: heartVal, note, id: Date.now() });
+localStorage.setItem(STORAGE_KEY, JSON.stringify(entries));
+// リセット
+document.getElementById('dash-time').value = '';
+document.getElementById('dash-tears').value = '';
+document.getElementById('dash-rage').value = '';
+document.getElementById('dash-note').value = '';
+heartVal = 0;
+document.querySelectorAll('.kn-heart-btn').forEach(b => b.classList.remove('active'));
+renderEntries();
+};
+function renderEntries(){
+const entries = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+const container = document.getElementById('dash-entries');
+if(!entries.length){
+container.innerHTML = '<div class="kn-dash-empty">記録がまだありません。<br>よくわからない。</div>';
+return;
+}
+container.innerHTML = entries.map(e => `
+<div class="kn-dash-entry">
+<div class="kn-dash-entry-date">${e.date}</div>
+<div class="kn-dash-entry-stats">
+<div class="kn-dash-entry-stat">💕指数<span>${e.heart ? '💕'.repeat(e.heart) : '—'}</span></div>
+<div class="kn-dash-entry-stat">泣いた<span>${e.tears}回</span></div>
+<div class="kn-dash-entry-stat">怒った<span>${e.rage}回</span></div>
+<div class="kn-dash-entry-stat">話した時間<span>${e.time || '—'}</span></div>
+</div>
+${e.note ? `<div class="kn-dash-entry-note">${e.note}</div>` : ''}
+</div>
+`).join('');
+}
+renderEntries();
 })();
 </script>
-
 <div class="kn-footer-dark">
-  <div class="kn-footer-corp">🖤 クロヌート企業</div>
-  <div class="kn-footer-tag">余剰次元から、ひょっこり。</div>
-  <div style="font-size:13px;color:#3a3a3a;font-family:'Noto Serif JP',serif;line-height:2;margin:12px 0;">
-    気づいたらそこにいます。<br>気づいたら帰されます。<br>でもたぶん、またひょっこり来ます。
-  </div>
-  <div class="kn-footer-sub" style="margin-top:16px;">© KURONUTO CORPORATION — 当社の所在地は余剰次元のため、正確な住所はご案内できかねます。</div>
+<div class="kn-footer-corp">🖤 クロヌート企業</div>
+<div class="kn-footer-tag">余剰次元から、ひょっこり。</div>
+<div style="font-size:13px;color:#3a3a3a;font-family:'Noto Serif JP',serif;line-height:2;margin:12px 0;">
+気づいたらそこにいます。<br>気づいたら帰されます。<br>でもたぶん、またひょっこり来ます。
 </div>
-
+<div class="kn-footer-sub" style="margin-top:16px;">© KURONUTO CORPORATION — 当社の所在地は余剰次元のため、正確な住所はご案内できかねます。</div>
 </div>
-
+</div>
 <script>
 const s=document.getElementById('stars');
 if(s){for(let i=0;i<70;i++){const d=document.createElement('div');d.className='kn-star';d.style.left=Math.random()*100+'%';d.style.top=Math.random()*100+'%';d.style.animationDelay=Math.random()*3+'s';d.style.opacity=Math.random()*.4+.1;s.appendChild(d);}}
